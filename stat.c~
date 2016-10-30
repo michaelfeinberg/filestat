@@ -3,7 +3,7 @@
 
 #include <string.h>
 #include <errno.h>
-#include <time.h>
+
 #include <fcntl.h>
 #include <sys/stat.h>
 #include <sys/types.h>
@@ -36,8 +36,6 @@ int main(){
 
   //Print file information
   printf( "Size of file: %d\n" , buff -> st_size );
-  printf( "mode(permissions): %d\n" , buff -> st_mode );
-  printf( "Time of last access: %s\n" , ctime(&(*buff).st_atim) );
 
   //Free memory and close files
   free( buff );
