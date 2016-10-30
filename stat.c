@@ -11,8 +11,9 @@
 
 
 int main(){
-  //Create and open file
-  int fd = open( "newfile.txt" , O_CREAT , 0644 );
+  umask(0);
+  //open file
+  int fd = open( "stat.c" , O_RDWR );
   
   //Check for errors
   if( fd < 0 ) {
@@ -36,7 +37,7 @@ int main(){
 
   //Print file information
   printf( "Size of file: %d\n" , buff -> st_size );
-  printf( "mode(permissions): %d\n" , buff -> st_mode );
+  printf( "mode(permissions): %o\n" , buff -> st_mode );
   printf( "Time of last access: %s\n" , ctime(&(*buff).st_atim) );
 
   //Free memory and close files
