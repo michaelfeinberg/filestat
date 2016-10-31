@@ -37,6 +37,12 @@ int main(){
 
   //Print file information
 
+  printf("Part one\n");
+  printf( "Size of file: %d\n" , buff -> st_size );
+  printf( "mode(permissions): %o\n" , buff -> st_mode );
+  printf( "Time of last access: %s\n" , ctime(&(*buff).st_atim) );
+  
+  printf("Part two: additions from the 31st\n");
   double bsize = buff -> st_size;
   double kbsize = bsize / 1000.0;
   double mbsize = kbsize / 1000.0;
@@ -51,10 +57,6 @@ int main(){
     printf( "Size of file: %lf GB\n" , gbsize );
   }
   
-
-
-  printf( "Time of last access: %s\n" , ctime(&(*buff).st_atim) );
-
   mode_t mode = buff -> st_mode;
   
   printf("File permissions: ");
